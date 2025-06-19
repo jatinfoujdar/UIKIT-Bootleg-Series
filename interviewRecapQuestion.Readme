@@ -1,0 +1,840 @@
+# Jercy's Interview Questions for iOS Developers
+
+> The previous question list can be found [here](https://github.com/JeaSungLEE/iOSInterviewquestions/blob/master/oldREADME.md).
+
+This repository is designed to assist with iOS interview preparation and learning. It emphasizes understanding the deep "why" behind questions, going beyond mere memorization of facts.
+
+Rather than providing direct answers, the repository focuses on questions to encourage you to explore and expand your knowledge independently by preparing your own responses. Establishing a strong foundation is crucial, so before diving into the interview questions, we recommend reviewing the following learning resources:
+
+1. [CS50: Computer Science for Everyone](https://www.boostcourse.org/cs112/joinLectures/41307) - A course covering essential concepts like data structures and algorithms.
+2. [Swift in Korean](https://bbiguduk.gitbook.io/swift/) - Comprehensive resources for understanding the Swift language.
+3. [ProGit](https://git-scm.com/book/ko/v2) - A guide to learning the basics and principles of Git.
+4. [LeetCode](https://leetcode.com/) - Algorithms are a critical part of programming. Solving a variety of problems consistently is highly recommended.
+
+Below are Apple’s official guides and tutorials, which are regularly updated and worth exploring:
+
+1. [Apple All Videos](https://developer.apple.com/videos/all-videos/) - WWDC videos to learn about the latest iOS development trends and technologies.
+2. [iOS App Dev Tutorials](https://developer.apple.com/tutorials/app-dev-training/) - Apple’s tutorials for iOS app development.
+3. [SwiftUI Tutorials](https://developer.apple.com/tutorials/swiftui) - Apple’s tutorials for SwiftUI.
+4. [Apple Developer Documentation](https://developer.apple.com/documentation/) - Apple’s official developer documentation.
+
+Recommended Apple documentation to read:
+
+- [Xcode](https://developer.apple.com/documentation/xcode/)
+- [Autolayout](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/index.html)
+- [Human Interface Guidelines (HIG)](https://developer.apple.com/kr/design/human-interface-guidelines/)
+- [Swift Package Manager (SPM)](https://developer.apple.com/documentation/xcode/swift-packages)
+- [Local & Push Notification](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/index.html)
+- [View, Window Guide](https://developer.apple.com/library/archive/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/Introduction/Introduction.html)
+- [ViewController Guide](https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/)
+- [Code Signing Guide](https://developer.apple.com/library/archive/documentation/Security/Conceptual/CodeSigningGuide/Introduction/Introduction.html)
+- [Info Plist Guide](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Introduction/Introduction.html)
+
+These resources will help build a solid foundation for iOS development and provide the deep understanding needed for interview preparation.
+
+# Expected Questions by Level
+
+> The levels are divided into 6 categories, based on arbitrary personal criteria:
+
+> Level 0: Student  
+> Level 1: 0–1 years of experience  
+> Level 2: 1–3 years of experience  
+> Level 3: 3–5 years of experience  
+> Level 4: 5–7 years of experience  
+> Level 5: 7+ years of experience
+
+## Level 0
+
+**Level 0: Expected Questions for Students / Entry-Level iOS Developers**
+
+1. **Explain the roles of CPU, RAM, and storage in a computer system and how they interact.**
+
+   - How do these components interact in sequence to display an app’s UI when the app is launched?
+   - What does the iOS system do when RAM is insufficient? Why is this important for app development?
+   - Which factor—CPU speed, RAM capacity, or storage speed—has the greatest impact on an app’s perceived performance? Explain why.
+
+2. **How does data exchange occur between the CPU and memory?**
+
+   - What devices are used in a computer system to increase data exchange speed?
+   - What is a bus, and what types exist?
+     - What other devices, besides CPU and RAM, are connected via a bus?
+   - Explain the concept and role of cache memory.
+     - What are cache hit and cache miss, and how do they affect performance?
+
+3. **Explain the principle of locality in caching.**
+
+   - Can you provide specific examples of temporal and spatial locality in code? (e.g., loops, array traversal)
+   - What performance issues might arise from code that poorly utilizes the locality principle?
+
+4. **Explain the types of CPU architectures (e.g., ARM, x86) and their characteristics.**
+
+   - Which architecture is primarily used in iOS devices, and why?
+   - What architecture does the iOS simulator typically run on, and how does it differ from actual devices? How might this impact development?
+   - Explain the characteristics and role of the Application Processor (AP) used in iOS devices.
+     - Besides the CPU, what key components are included in the iOS AP, and how do they contribute to app performance? (e.g., GPU, Neural Engine)
+   - What is a System on a Chip (SoC)?
+     - Why is SoC design important for mobile devices? (e.g., power efficiency, size)
+
+5. **Explain the role of an operating system and the structure of iOS’s operating system.**
+
+   - How would app development differ without an operating system?
+   - How does iOS’s sandbox structure work?
+     - What advantages or disadvantages does the sandbox structure provide beyond app security?
+   - What is the role of the kernel?
+     - Can app code directly call kernel functions? If not, how do they interact?
+   - How is multitasking supported?
+     - What scenarios allow an iOS app to continue running in the background? (e.g., music playback, location tracking)
+
+6. **Explain the difference between a process and a thread, and how they are managed in iOS.**
+
+   - Is it common for a single app to use multiple processes? If not, why are threads preferred?
+   - Why is multithreading necessary?
+     - What issues can arise from performing time-consuming tasks on the main thread? Provide a specific example.
+   - What role does GCD (Grand Central Dispatch) play in iOS?
+     - What challenges might arise from manually creating and managing threads without GCD?
+     - Explain the types of DispatchQueue (Serial, Concurrent) and their purposes.
+
+7. **Explain the memory management techniques used in iOS and their characteristics.**
+
+   - How does Automatic Reference Counting (ARC) work?
+     - Why do developers still need to care about memory management despite ARC’s automation?
+     - When should strong, weak, and unowned references be used? Provide examples.
+     - What is a retain cycle, how does it occur, and how can it be resolved? (Include retain cycles in closures)
+   - What is the difference between ARC and Garbage Collection?
+     - What are the advantages and disadvantages of ARC compared to Garbage Collection?
+
+8. **Explain the concept and role of the sandbox in iOS, and methods for data sharing between apps.**
+
+   - What limitations might developers face due to the sandbox when building apps?
+   - How does app-to-app communication work using URL schemes?
+     - What security considerations should be taken when using URL schemes?
+   - How can data be shared using App Groups?
+     - What types of data are suitable for sharing via App Groups? Is it appropriate for large files?
+     - What is the relationship between App Groups and App Extensions?
+
+9. **Explain iOS’s memory structure and management in detail.**
+
+   - What is the difference between the heap and the stack?
+     - How is stack memory used during function calls? What happens to stack memory during recursive function calls?
+     - Where are Swift’s value types and reference types typically allocated—heap or stack? Why?
+     - Explain the difference in copying behavior between value types and reference types (including Copy-on-Write).
+     - In what scenarios might a stack overflow occur?
+
+10. **Explain the network protocol stack and networking methods in iOS.**
+
+    - What are the differences between HTTP and HTTPS, and how is secure communication implemented in iOS?
+      - HTTPS is said to ensure secure communication—what exactly is protected? (Explain confidentiality, integrity, authentication)
+      - What restrictions apply by default when attempting HTTP communication in an iOS app? How can these be bypassed? (ATS - App Transport Security)
+    - Briefly explain the SSL/TLS handshake process.
+      - How does a browser or app verify the validity of a server’s SSL/TLS certificate? (CA, certificate chain)
+
+11. **Explain the OSI 7-layer model in computer networking.**
+
+    - What are the roles and representative protocols of each layer?
+      - Which layer do iOS app developers typically focus on when communicating with servers, and why? (Application Layer focus)
+    - Why is network communication divided into layers?
+    - What are the differences between the TCP/IP model and the OSI model?
+      - Which model does actual internet communication more closely follow?
+
+12. **Explain the characteristics of the HTTP protocol and the differences between HTTP/1.1 and HTTP/2.**
+
+    - What is HTTP’s stateless nature, and how is it overcome?
+      - What technologies are commonly used to maintain login state? (Cookies, Sessions, Tokens)
+    - What are the key features added in HTTP/2 (e.g., Multiplexing, Header Compression, Server Push)?
+      - How does HTTP/2’s multiplexing improve app performance? How does it relate to HTTP/1.1’s Head-of-Line Blocking issue?
+    - What features were added in HTTP/3? (Mention QUIC-based)
+      - Why does HTTP/3 use UDP-based QUIC? What are the advantages of choosing UDP over TCP?
+
+13. **Explain the characteristics and differences between TCP and UDP.**
+
+    - What are connection-oriented and connectionless protocols?
+    - How do TCP’s 3-way handshake and 4-way handshake processes work?
+      - What happens if an issue occurs during the 3-way handshake?
+      - What are TCP’s congestion control and flow control?
+    - In what situations is UDP more appropriate?
+      - Why is UDP preferred over TCP for real-time video streaming or online gaming? How is data loss handled?
+    - Explain socket communication.
+      - When might socket programming be necessary? What are the pros and cons compared to high-level APIs like URLSession?
+
+14. **Explain REST APIs and how network requests and responses are handled in iOS.**
+
+    - What are REST’s constraints (Stateless, Cacheable, Client-Server, etc.)?
+    - What is the basic process for sending network requests using URLSession in iOS?
+      - Besides URLSession, what other methods or libraries (e.g., Alamofire) can be used for networking in iOS? What are their pros and cons?
+    - Explain the differences between HTTP methods (GET, POST, PUT, DELETE, etc.) and their purposes.
+      - What are the key differences between GET and POST (idempotency, body presence, caching, etc.)?
+      - What is the difference between PUT and PATCH? When should each be used?
+    - Explain HTTP status codes (1xx, 2xx, 3xx, 4xx, 5xx groups).
+      - What is the difference between 4xx and 5xx errors when an API request fails, and how should an app handle each? (e.g., user notifications, retry logic)
+    - Explain the process of decoding JSON data into Swift objects.
+      - How does Swift’s `Codable` protocol work? What are `Encodable` and `Decodable`?
+      - How can JSON keys be mapped to Swift property names if they differ? (`CodingKeys`)
+
+15. **Explain image file formats in iOS (PNG, JPEG, HEIC, WebP, etc.) and their characteristics.**
+
+    - What are the differences between PNG and JPEG? (Lossy/lossless compression, transparency support, etc.)
+      - Which image format is best for UI elements (buttons, icons, etc.), and why?
+      - Why might JPEG be more suitable for color-rich images like photos?
+    - What are the advantages of the HEIC format, and when is it commonly used in iOS?
+    - What are the features and benefits of WebP? How can it be used in iOS apps?
+    - What is the difference between lossless and lossy compression, and how do they affect file size and image quality?
+
+16. **Explain memory size-related concepts and considerations in iOS.**
+
+    - How does memory alignment affect performance?
+      - What issues might arise from improper memory alignment? (Beyond performance degradation, e.g., crashes)
+    - Explain iOS device memory constraints and app memory limits.
+      - What efforts can developers make to reduce an app’s memory usage? (Image optimization, data caching strategies, releasing unused objects, etc.)
+    - What actions should be taken when a memory warning occurs?
+      - What are the first steps to check or try when receiving a memory warning? (Clearing caches, terminating background tasks, etc.)
+      - Have you used Instruments’ Allocations or Leaks tools? What information can they provide?
+
+17. **Explain the concepts of time complexity and space complexity in algorithms, and Big-O notation.**
+
+    - Explain the meanings of O(1), O(log n), O(n), O(n log n), O(n²), and provide example algorithms for each.
+    - What is the difference between O(n) and O(log n)? How do they differ as data size grows significantly?
+    - When is space complexity as important as time complexity? Why is space complexity critical in iOS environments?
+    - Why consider best, average, and worst-case scenarios in algorithm analysis?
+
+18. **Explain the working principles and time/space complexities of commonly used sorting algorithms (e.g., Bubble Sort, Selection Sort, Insertion Sort, Quick Sort, Merge Sort).**
+
+    - What are the pros and cons of each sorting algorithm? For example, which is most efficient for nearly sorted data?
+    - How do Quick Sort’s average and worst-case time complexities differ? When does the worst case occur, and how can it be mitigated? (Pivot selection)
+    - Merge Sort guarantees O(n log n) time complexity—why is Quick Sort often preferred? (Space complexity, real-world performance)
+    - What sorting algorithm does Swift’s standard library `sort()` method use? (Introsort)
+
+19. **Explain the principle and time complexity of Binary Search.**
+
+    - What is the prerequisite for using Binary Search?
+    - What is the simplest way to find an element in an unsorted array, and what is its time complexity? (Linear Search)
+    - Can you implement Binary Search using recursion and iteration?
+
+20. **Explain the concept of Dynamic Programming.**
+
+    - What types of problems is Dynamic Programming useful for? (Optimal substructure, overlapping subproblems)
+    - Explain the two approaches to Dynamic Programming (memoization and tabulation).
+    - Can you explain Dynamic Programming using the Fibonacci sequence as an example? What advantages does it offer over naive recursion?
+
+21. **Explain types of data structures and those commonly used in iOS development.**
+
+    - Explain the characteristics and suitable use cases for arrays, linked lists, stacks, and queues.
+      - Which is theoretically better for frequent insertions or deletions in the middle—arrays or linked lists? Why?
+      - What data structure does Swift’s `Array` most closely resemble? How might a variable-size array be implemented internally?
+      - How can stacks and queues be used in iOS features? (e.g., navigation stacks, task queues)
+    - Explain the concept of hash tables and collision resolution methods (Chaining, Open Addressing, etc.).
+      - How are Swift’s `Dictionary` and `Set` related to hash tables?
+      - What performance issues arise from frequent hash collisions? What makes a good hash function?
+    - Explain the basic concept of trees and their types (binary trees, binary search trees, etc.). How are trees related to iOS UI structures (View Hierarchy)?
+
+22. **Explain basic concepts of encryption and security, and methods to secure iOS apps.**
+
+    - Explain the differences between symmetric and asymmetric encryption, their pros and cons, and use cases. How are they combined in HTTPS?
+    - What is hashing, and how does it differ from encryption? Why is hashing (with salt) used for password storage?
+    - How should sensitive information like passwords or API keys be safely stored in an app? (Keychain) What are the advantages of Keychain over UserDefaults?
+    - What is a Man-in-the-Middle attack, and how do HTTPS and certificate pinning help prevent it?
+
+23. **Explain the concept and working principle of virtual memory.**
+
+    - What are the main reasons for using virtual memory? (Memory management simplification, process isolation, larger address space, etc.)
+    - Why can virtual memory be larger than physical memory (RAM)? What are paging and swapping?
+    - What is a page fault, and when does it occur? What performance issues arise from frequent page faults?
+
+24. **Explain types of databases and those commonly used in iOS.**
+
+    - What are the key differences between relational databases (RDBMS) and NoSQL databases (data model, schema, scalability, etc.)?
+    - Explain the characteristics, pros and cons, and suitable use cases for iOS data persistence methods (UserDefaults, Plist, Keychain, Core Data, Realm, SQLite, etc.).
+      - Which technology is best for storing simple user preferences (e.g., dark mode, font size)?
+      - Which technology should be considered for managing large amounts of data with complex object relationships? (Core Data, Realm)
+
+25. **What is the Singleton Pattern, and when is it used?**
+
+    - Explain the advantages and disadvantages of the Singleton Pattern.
+    - What issues can arise from overusing the Singleton Pattern? (Global state issues, testing difficulties, hidden dependencies, etc.)
+    - What is the typical way to implement a Singleton in Swift, and how is thread safety ensured in a multithreaded environment?
+      - Why does declaring a Singleton instance with `let` in Swift help ensure thread safety? (Relate to dispatch_once behavior)
+
+26. **Explain the differences between Array and List.**
+
+    - (Assuming 'List' refers to a Linked List) Which data structure is faster for accessing elements at arbitrary indices, and why?
+    - Which is theoretically better for inserting or deleting elements in the middle, and why?
+    - How do contiguous memory allocation (Array) and node-based allocation (Linked List) differ in terms of memory usage?
+    - Swift’s `Array` is a value type—how does this impact performance and memory usage? (Include Copy-on-Write explanation)
+
+27. **What are serialization and deserialization?**
+
+    - What is the JSON format, and why is it commonly used in API communication?
+    - What other formats are frequently used in communication besides JSON?
+
+28. **Explain the difference between concurrency and parallelism.**
+
+    - iOS devices have multiple CPU cores—how does this relate to implementing concurrency/parallelism?
+    - What issues can arise in concurrent programming (e.g., Race Condition, Deadlock), and what solutions exist? (e.g., Serial Queue, Lock, Semaphore)
+
+## Level 1
+
+1. **What are Optionals in Swift, and when should they be used?**
+   - What is the difference between optional binding and forced unwrapping?
+   - How does optional chaining work, and how is it used?
+   - When should implicitly unwrapped optionals be used?
+
+2. **Explain the iOS app lifecycle.**
+   - What tasks are possible in each app state (`Not Running`, `Inactive`, `Active`, `Background`, `Suspended`)?
+   - Which `AppDelegate` or `SceneDelegate` methods are called during state transitions?
+   - What methods exist to complete tasks in the background?
+
+3. **Why use Auto Layout, and what are its advantages?**
+   - How do constraint priorities work?
+   - What is intrinsic content size, and how is it utilized?
+   - What are ambiguous layouts and unsatisfiable constraints, and how are they resolved?
+
+4. **What are closures in Swift, and how are they used?**
+   - What is the capture functionality of closures?
+   - What is the difference between `@escaping` and non-escaping closures?
+   - When is trailing closure syntax useful?
+
+5. **What is the Delegate pattern in iOS, and when is it used?**
+   - What are the differences between Delegate, Notification, and KVO?
+   - Explain how to implement the Delegate pattern using protocols.
+
+6. **What are Swift’s basic data types and collection types?**
+   - What is the difference between value types and reference types?
+   - How do you decide when to use structs versus classes?
+   - What are raw values and associated values in enums?
+
+7. **What debugging features do you frequently use in Xcode?**
+   - Explain the types of breakpoints and their uses.
+   - What are useful LLDB console commands?
+
+8. **What methods exist for storing data in iOS apps?**
+   - What precautions should be taken when using `UserDefaults`?
+   - What types of data are suitable for Keychain storage?
+   - What are the differences between Core Data and SQLite, and when should each be used?
+
+9. **What are protocols in Swift, and how are they utilized?**
+   - What are the requirements of a protocol?
+   - Why use protocol extensions?
+   - What are the advantages of Protocol-Oriented Programming?
+
+10. **Explain Swift’s access control levels.**
+    - What is the difference between `open` and `public`?
+    - How do you decide when to use `internal`, `fileprivate`, or `private`?
+    - Why use access control?
+
+11. **What methods exist for network communication in iOS apps?**
+    - Explain the basic usage of `URLSession`.
+    - How do you handle errors in network requests?
+    - Why use third-party libraries like Alamofire?
+
+12. **What are the types of dependency management tools (CocoaPods, Carthage, Swift Package Manager), and their differences?**
+    - Explain the usage, advantages, and disadvantages of each tool.
+    - What benefits does dependency management provide?
+
+13. **Explain higher-order functions in Swift.**
+    - What is the difference between `map` and `flatMap`?
+    - When are `filter` and `reduce` functions used?
+    - What is the role of `compactMap`?
+
+14. **Why use branches in Git, and what are their advantages?**
+    - What methods exist for merging branches?
+    - Explain branching strategies (e.g., Git Flow, GitHub Flow).
+    - How do you resolve conflicts?
+
+15. **Explain error handling in Swift.**
+    - How do `throws`, `try`, and `catch` keywords work?
+    - What is the difference between error handling with optionals and `do-catch`?
+    - How do you propagate errors?
+
+16. **What is the difference between strong and weak references in memory management?**
+    - What causes retain cycles, and how are they resolved?
+    - What is the difference between `[weak self]` and `[unowned self]` in closures?
+
+17. **How is multithreading implemented in iOS apps?**
+    - What is the difference between `DispatchQueue` and `OperationQueue`?
+    - How do you prevent race conditions in concurrent programming?
+    - Why must UI updates be performed on the main thread?
+
+18. **What are the differences between TableView and CollectionView in UIKit?**
+    - How is cell reusability implemented?
+    - How do you set dynamic cell heights?
+    - How do you customize CollectionView layouts?
+
+19. **How does ARC (Automatic Reference Counting) work?**
+    - How do you prevent retain cycles?
+    - When is the `deinit` method called, and what is its role?
+
+20. **What is the difference between inheritance and protocols?**
+    - What are the pros and cons of class inheritance?
+    - Why is multiple inheritance not possible?
+    - How do you achieve polymorphism through protocol conformance?
+
+21. **What is the difference between UI tests and unit tests?**
+    - How do you write tests using the XCTest framework?
+    - What are the advantages of Test-Driven Development (TDD)?
+    - How do you write testable code using dependency injection?
+
+22. **How do you analyze app performance using Instruments in Xcode?**
+    - Explain how to find performance issues using the Time Profiler.
+    - How do you detect memory leaks using the Allocations Instrument?
+    - How do you find memory leaks using the Leaks Instrument?
+
+23. **Explain generics in Swift.**
+    - Why use generics?
+    - How do you set generic type parameters and constraints?
+    - What are the advantages and precautions when using generics?
+
+24. **What is the difference between closures and functions in Swift?**
+    - Why are closures considered first-class citizens?
+    - How are closures utilized in functional programming paradigms?
+
+25. **What is the difference between synchronous and asynchronous in concurrent programming?**
+    - How do you handle asynchronous tasks in iOS?
+    - What is the difference between semaphores and mutexes?
+
+26. **Explain the key concepts and usage of GCD (Grand Central Dispatch).**
+    - What is the difference between serial and concurrent queues?
+    - How do global queues differ from the main queue?
+    - How do you use `DispatchWorkItem`?
+
+## Level 2
+
+1. **Explain concurrent programming in Swift.**
+
+   - Explain the key concepts and usage of Grand Central Dispatch (GCD).
+   - What is the difference between `OperationQueue` and `DispatchQueue`?
+   - What are common concurrency issues (e.g., Race Condition, Deadlock) and their solutions?
+
+2. **Explain the main concepts of Object-Oriented Programming (OOP).**
+
+   - What is the difference between encapsulation and information hiding?
+   - What are the pros and cons of inheritance?
+   - Provide an example of polymorphism in use.
+
+3. **What is Protocol-Oriented Programming (POP), and what are its advantages?**
+
+   - Why use protocol extensions?
+   - When is protocol composition used?
+   - What benefits come from combining protocols with generics?
+
+4. **How is memory management handled in iOS apps?**
+
+   - Explain the working principle of ARC (Automatic Reference Counting).
+   - What is the difference between strong and weak references?
+   - Explain scenarios where retain cycles occur and how to resolve them.
+   - Explain the differences between strong, weak, and unowned references.
+
+5. **What are the key features for handling strings in Swift?**
+
+   - What is the difference between substrings and strings?
+   - Explain how to use string interpolation and its precautions.
+   - Explain how to handle strings using regular expressions.
+
+6. **What is the `Codable` protocol, and how is it used?**
+
+   - What are the roles of `Encodable` and `Decodable` protocols?
+   - Explain how to decode JSON data into custom objects.
+   - How do you customize encoding/decoding keys for types adopting `Codable`?
+
+7. **Why is dependency injection used in iOS apps?**
+
+   - Explain the three types of dependency injection (Initializer, Property, Method).
+   - What is a dependency injection container?
+   - What benefits does dependency injection provide?
+
+8. **What is the difference between the Delegation Pattern and closures?**
+
+   - Explain scenarios where memory leaks can occur in the Delegation Pattern and how to resolve them.
+   - What is the role of a closure’s capture list?
+   - What are the pros and cons of using the Delegation Pattern and closures together?
+
+9. **What are the differences between UITableView and UICollectionView in UIKit?**
+
+   - Why and how are cells reused in TableView and CollectionView?
+   - What are the roles of data sources and delegates in TableView and CollectionView?
+   - Explain the types and characteristics of layouts available for CollectionView.
+
+10. **What are the differences between MVC, MVVM, VIP, and MVI architecture patterns in iOS apps?**
+
+    - What are the advantages of MVC?
+    - Explain the components and responsibilities of each architecture pattern.
+    - What is the role of binding in MVVM?
+    - What is the role of the Presenter in VIP?
+    - What is the role of Intent in MVI?
+
+11. **What precautions should be taken when using Optionals in Swift?**
+
+    - Why should forced unwrapping be avoided?
+    - What is the difference between optional binding and optional chaining?
+    - When are implicitly unwrapped optionals used?
+
+12. **How do you use Core Animation in iOS apps?**
+
+    - Explain the main properties and methods of CALayer.
+    - When are animation groups used?
+    - What is the difference between keyframe animations and spring animations?
+
+13. **How do you leverage Protocol-Oriented Programming in Swift?**
+
+    - Explain how to provide default implementations through protocol extensions.
+    - When is protocol inheritance used?
+    - What benefits come from combining Protocol-Oriented Programming with generics?
+
+14. **How do you implement response caching for network requests in iOS apps?**
+
+    - What is the role of `URLCache`?
+    - What are the pros and cons of response caching?
+    - Explain how to customize response caching.
+
+15. **What is the Combine framework, and what features does it provide?**
+
+    - What are the roles of Publishers and Subscribers?
+    - Explain the types and usage of Operators.
+    - What are the differences between Combine and RxSwift?
+
+16. **Explain generics in Swift.**
+
+    - Why use generics?
+    - What are generic type parameters and generic type constraints?
+    - What precautions should be taken when using generics?
+
+17. **How do you implement local push notifications in iOS apps?**
+
+    - What is the difference between local and remote push notifications?
+    - What are the roles of notification content and triggers?
+    - Explain how to handle app behavior when a user taps a push notification.
+
+18. **How do you use SwiftUI and UIKit together in iOS apps?**
+
+    - Explain how to use UIKit view controllers in SwiftUI views.
+    - Explain how to host SwiftUI views in UIKit view controllers.
+    - What precautions should be taken when using SwiftUI and UIKit together?
+
+19. **What are key paths in Swift, and how are they used?**
+
+    - Explain the syntax and use cases of key path expressions.
+    - Explain how to access properties using key paths at runtime.
+    - Explain the relationship between key paths and KVO (Key-Value Observing).
+
+20. **What is the difference between Deep Links and Universal Links in iOS apps?**
+
+    - Explain how to implement Deep Links and their precautions.
+    - Explain the working principle and setup process for Universal Links.
+    - What are the advantages of using Deep Links and Universal Links together?
+
+21. **Explain the Result type and error handling in Swift.**
+
+    - Why and what are the advantages of using the Result type?
+    - Explain how to handle errors using `do-catch` with the Result type.
+
+22. **Explain how to detect and resolve concurrency issues using Thread Sanitizer in iOS apps.**
+
+23. **Explain the Sequence and Collection protocols in Swift.**
+
+    - Explain the differences and requirements of Sequence and Collection protocols.
+    - Explain how to implement custom Sequence and Collection types with examples.
+
+24. **Explain Adaptive Layout and Size Classes in UIKit.**
+
+    - Explain the concept and purpose of Adaptive Layout.
+    - Explain how to implement adaptive UI for various devices using Size Classes, with examples.
+
+25. **Explain custom operators in Swift.**
+
+    - Explain how to define custom operators and their precautions.
+    - Suggest ways to improve code readability using custom operators.
+
+26. **Explain advanced concepts related to initializers in Swift.**
+
+    - What is the difference between designated and convenience initializers?
+    - When are required initializers and failable initializers used?
+
+27. **Explain the role and types of Schedulers in the Combine framework.**
+
+    - Explain how to use Schedulers to execute tasks on specific queues (`DispatchQueue`).
+    - Explain how to implement a pattern for performing background tasks and updating the UI on the main queue using Combine.
+
+28. **UIView in UIKit is class-based, but types conforming to the View protocol in SwiftUI are typically structs. Why is this the case?**
+
+    - What are the key characteristics of structs conforming to the `View` protocol, and how do they impact SwiftUI’s performance and usability?
+    - How does SwiftUI manage and update state despite `View` being a struct?
+    - How does the creation and update cycle of SwiftUI’s struct-based `View` differ from UIKit’s class-based `UIView`?
+
+## Level 3
+
+1. **Explain data migration using Core Data in iOS apps.**
+
+   - What is the difference between lightweight and heavyweight migration?
+   - Explain how to migrate data using a mapping model.
+   - What issues might arise during data migration, and how are they resolved?
+
+2. **Explain strategies and APIs for handling low-memory situations in iOS apps.**
+
+   - Explain the concept and behavior of low-memory warnings in iOS.
+   - Explain the role and implementation of `didReceiveMemoryWarning()`.
+   - Explain resource management strategies to maintain app stability in low-memory situations.
+
+3. **Explain metatypes and mirrors in Swift.**
+
+   - How do you access type information using metatypes?
+   - Explain how to dynamically explore an object’s properties using mirrors.
+   - Provide real-world use cases for metatypes and mirrors.
+
+4. **How do you create and use binary frameworks in iOS apps?**
+
+   - What is the difference between binary and source code frameworks?
+   - What considerations are needed when creating binary frameworks?
+   - Explain how to distribute and version binary frameworks.
+
+5. **How is error handling done in the Combine framework?**
+
+   - What operators are used to handle error events?
+   - How do you automatically cancel a subscription when an error occurs?
+   - Explain how to handle errors using Combine with the Result type.
+
+6. **Explain dynamic member lookup in Swift.**
+
+   - What is the role and usage of the `@dynamicMemberLookup` attribute?
+   - Explain how to implement dynamic member lookup using subscripts.
+   - Provide real-world use cases for dynamic member lookup.
+
+7. **Explain property wrappers in Swift.**
+
+   - Why and what are the advantages of using property wrappers?
+   - Explain the differences and usage of `@State`, `@Binding`, `@ObservedObject`, etc.
+   - Explain how to create and use custom property wrappers with examples.
+
+8. **How do you implement Siri Shortcuts in iOS apps?**
+
+   - Explain the working principle and use cases of Siri Shortcuts.
+   - Explain how to implement Siri Shortcuts using `NSUserActivity` and the Intents Framework.
+   - How do you customize Siri Shortcuts and pass parameters?
+
+9. **Explain unsafe pointers in Swift.**
+
+   - What are the differences and usage of `UnsafePointer`, `UnsafeMutablePointer`, and `UnsafeRawPointer`?
+   - What precautions should be taken when using unsafe pointers?
+   - Explain how to interact with C libraries using unsafe pointers.
+
+10. **Explain reflection in Swift.**
+
+    - Explain how to dynamically explore object properties using the `Mirror` type.
+    - Explain how to inspect type information and call methods at runtime.
+    - What are the precautions and performance considerations for using reflection?
+
+11. **How do you securely store sensitive data using Keychain in iOS apps?**
+
+    - Explain the process of storing and retrieving data using Keychain Services API.
+    - Explain how to share data between apps using Keychain Access Groups.
+    - Explain Keychain’s access control options and their usage.
+
+12. **Explain async/await for asynchronous programming in Swift.**
+
+    - Explain the working principle and usage of async/await syntax.
+    - Explain how to manage asynchronous tasks using `Task` and `TaskGroup`.
+    - Explain the differences and use cases for `AsyncSequence` and `AsyncStream` with examples.
+
+13. **How do you implement home screen widgets using WidgetKit in iOS apps?**
+
+    - Explain the widget lifecycle and update mechanisms.
+    - Explain how to build widget UI using SwiftUI and related precautions.
+    - Explain how to share and communicate data between widgets and apps.
+
+14. **Explain the MVVM-C (Coordinator) architecture pattern.**
+
+    - Explain the role and implementation of the Coordinator.
+    - Explain the pros, cons, and use cases of MVVM-C.
+
+15. **Explain `@dynamicCallable` and `@dynamicMemberLookup` in Swift.**
+
+    - Explain how to create callable types using `@dynamicCallable` with examples.
+    - Explain how to dynamically access properties using `@dynamicMemberLookup` with real-world use cases.
+
+16. **Explain ABI (Application Binary Interface) stability in Swift.**
+
+    - Explain the concept and importance of ABI stability.
+    - Explain the impact of ABI stability on framework development and distribution.
+
+17. **Explain reactive programming patterns using the Combine framework in iOS apps.**
+
+    - Explain data binding in MVVM architecture using Combine with examples.
+    - Explain how to build declarative, reactive UI using Combine and SwiftUI.
+
+18. **Explain Swift’s runtime behavior and performance optimization techniques.**
+
+    - Explain the structure and behavior of the Swift runtime.
+    - Introduce Swift performance optimization techniques (e.g., dynamic dispatch, inlining, stack promotion) and compiler optimization options.
+
+19. **Explain methods and considerations for improving accessibility in iOS apps.**
+
+    - Explain the working principles and support methods for accessibility technologies like VoiceOver and Switch Control.
+    - Explain techniques for improving visual accessibility, such as Dynamic Type and Bold Text, with implementation details.
+    - Explain accessibility testing, review criteria, and best practices with examples.
+
+20. **Explain how to bridge Objective-C in iOS apps, including precautions.**
+
+## Level 4
+
+1. **Explain memory safety in Swift.**
+
+   - What are the concepts of ownership and borrowing, and their differences?
+   - Explain Swift’s mechanisms for ensuring memory safety (e.g., borrowing checks, ownership checks).
+   - Explain scenarios where memory safety rules are violated and how to resolve them with examples.
+
+2. **How do you implement BLE (Bluetooth Low Energy) communication using Core Bluetooth in iOS apps?**
+
+   - Explain the roles and interaction process of Central and Peripheral.
+   - Explain the main methods and delegate methods of `CBCentralManager` and `CBPeripheralManager`.
+   - Explain the concept and implementation of services and characteristics in BLE communication.
+
+3. **Explain the Copy-on-Write mechanism in Swift.**
+
+   - Explain the working principle and advantages of Copy-on-Write.
+   - Which Swift types use Copy-on-Write?
+   - Explain how to optimize performance considering Copy-on-Write with examples.
+
+4. **How do you interact with NFC tags using Core NFC in iOS apps?**
+
+   - Explain the differences and usage of `NFCNDEFReaderSession` and `NFCTagReaderSession`.
+   - Explain the process and required permissions for reading and writing NFC tags.
+   - What are the precautions and limitations when using Core NFC?
+   - Explain security considerations and best practices for Core NFC.
+
+5. **Explain actors and structured concurrency in Swift.**
+
+   - Explain the concept of actors and how they address concurrency issues.
+   - Explain structured concurrency programming using `async let` and `TaskGroup` with examples.
+   - Introduce effective asynchronous programming patterns using actors and structured concurrency.
+
+6. **How do you perform image analysis and processing using the Vision framework in iOS apps?**
+
+   - Explain how to implement features like face detection/recognition, barcode scanning, and text recognition.
+   - Explain the types, usage, and result handling of Vision requests (`VNRequest`).
+   - Explain how to integrate Vision with frameworks like Core ML and ARKit.
+
+7. **Explain property wrappers in Swift.**
+
+   - Explain the working principle, purpose, and implementation of property wrappers.
+
+8. **Explain methods and best practices for enhancing security in iOS apps.**
+
+   - Explain encryption technologies (e.g., AES, RSA) for secure data storage and transmission with implementation details.
+   - Introduce security measures like app binary protection, jailbreak detection, and dynamic library detection.
+   - Suggest additional security enhancements like code obfuscation and runtime integrity checks.
+
+9. **Explain custom string interpolation in Swift.**
+
+   - Explain how to extend string interpolation using custom string interpolation with examples.
+
+10. **Explain Distributed Actors in Swift.**
+
+    - Explain the concept and purpose of Distributed Actors.
+    - Explain communication and state synchronization in distributed systems using Distributed Actors with examples.
+
+11. **Explain designing and implementing DSLs (Domain-Specific Languages) in Swift.**
+
+    - Explain the concept, advantages, and implementation of DSLs in Swift.
+    - Introduce DSL design cases using result builders.
+
+12. **Explain code design using Swift’s flexible syntax features (e.g., operator overloading, subscript notation).**
+
+    - Explain how to intuitively express operations for custom types using operator overloading with examples.
+    - Explain how to implement custom collection types using subscript notation and related precautions.
+
+13. **Explain reflection and runtime programming in Swift in detail.**
+
+    - Explain how to inspect type information and call methods at runtime using reflection with examples.
+    - Explain how to implement a dependency injection framework using reflection.
+
+14. **How do you integrate machine learning models using Core ML in iOS apps?**
+
+    - Explain the process of creating and adding Core ML models to apps.
+    - Explain how to perform image recognition using Core ML with the Vision framework.
+    - Explain how to optimize Core ML model performance and related precautions.
+    - Compare Core ML with other machine learning frameworks, including their pros and cons.
+    - Introduce model lightweighting and optimization techniques, and suggest model design strategies for mobile environments.
+
+## Level 5
+
+1. **Explain strategies and best practices for building and managing effective iOS development teams.**
+
+   - Explain role division, collaboration methods, and communication channels for development teams.
+   - Suggest methods for code quality and knowledge sharing, such as code reviews and pair programming.
+   - Introduce best practices for project operations, such as technical debt management and performance monitoring.
+
+2. **Explain strategies and tools for performance optimization in iOS apps.**
+
+   - Introduce performance analysis and bottleneck detection using Instruments.
+   - Suggest performance improvement methods, such as memory management, image optimization, and network request optimization.
+   - Explain optimization techniques for improving user experience, such as reducing app launch time and increasing frame rates.
+
+3. **Explain architecture design and modularization strategies for sustainable iOS app development.**
+
+   - Introduce architecture patterns like Clean Architecture and VIPER, and their application methods.
+   - Suggest methods for improving code reusability and maintainability through functional and library modularization.
+   - Explain how to achieve loose coupling between modules using principles like dependency injection and interface segregation.
+
+4. **Explain strategies and resources for effective iOS developer growth and learning.**
+
+   - Introduce methods for staying updated with trends and learning through WWDC, conferences, and communities.
+   - Suggest developer branding and networking strategies through open-source contributions and technical blogging.
+   - Explain how to enhance practical skills and build portfolios through personal and side projects.
+
+5. **Explain UX/UI design strategies and collaboration methods for improving user experience in iOS apps.**
+
+   - Introduce UX design principles like user-centered design, accessibility, and consistency, with application methods.
+   - Suggest ways to streamline design-development collaboration using design systems and UI kits.
+   - Explain data-driven UX optimization processes through user feedback collection and A/B testing.
+
+6. **Explain the pros and cons of cross-platform development versus iOS native development, and selection criteria.**
+
+   - Introduce the features and ecosystems of cross-platform frameworks like Flutter and React Native.
+   - Compare cross-platform and native development in terms of performance, user experience, and development efficiency.
+   - Suggest selection criteria based on project requirements, team capabilities, and maintenance plans.
+
+7. **Explain monetization and business model strategies for iOS apps.**
+
+   - Introduce monetization methods like paid apps, in-app purchases, ads, and subscriptions, with their pros, cons, and use cases.
+   - Suggest strategies for maximizing revenue through user segmentation, pricing policies, and promotions.
+   - Explain marketing considerations like App Store Optimization (ASO) and user acquisition/retention strategies.
+
+8. **Explain goal-setting and growth strategies for a sustainable career as an iOS developer.**
+
+   - Suggest directions for developing senior-level skills like technical leadership, project management, and architecture design.
+   - Introduce methods for expanding influence through community activities, conference talks, and mentoring.
+   - Explain how to demonstrate leadership within organizations through development culture innovation, team building, and process improvements.
+
+9. **Explain tools and methodologies for automating and streamlining the app development process.**
+
+   - Introduce tools and processes for building CI/CD pipelines, automated builds, and deployments.
+   - Suggest tools and methods for code quality management, static analysis, and test automation.
+   - Explain project management frameworks like Agile, Scrum, and Kanban, with use cases.
+
+10. **Explain methods for fostering an ethical and socially responsible development culture as an iOS developer.**
+
+    - Suggest inclusive app design and development approaches considering accessibility, inclusivity, and diversity.
+    - Introduce best practices for user privacy protection, data security, and ethical data usage.
+    - Explain the role and responsibilities of developers in recognizing technology’s societal impact and driving positive change.
+
+11. **Explain methods for contributing to and managing a sustainable open-source ecosystem.**
+
+    - Suggest strategies for effective open-source participation, such as project selection, contribution methods, and issue management.
+    - Introduce the role and best practices of open-source maintainers, including project management, license compliance, and community operations.
+
+12. **Explain strategies for global market entry and localization as an iOS developer.**
+
+    - Suggest development strategies for global users, including app localization, language support, and cultural considerations.
+    - Introduce strategies and success cases for global market entry, such as global ASO, local marketing, and partnerships.
+
+13. **Explain best practices and strategies for enhancing security and privacy in iOS app development.**
+
+    - Introduce security best practices like secure data storage, network communication encryption, and user authentication/authorization.
+    - Explain development strategies and considerations for complying with privacy regulations like GDPR and CCPA.
+
+14. **Explain community activities and knowledge-sharing methods for contributing to a sustainable tech ecosystem as an iOS developer.**
+
+    - Suggest the importance and participation methods for developer community activities like technical blogging, conference talks, and study groups.
+    - Explain the role and efforts of developers in knowledge sharing and mentoring through education content creation and open-source project sharing.
+
+15. **Explain data-driven decision-making methods for continuous improvement and maintenance of iOS apps.**
+
+    - Introduce tools and methodologies for data-driven decisions, such as A/B testing and user behavior analysis.
+    - Explain the process of improving user experience and planning new features using app analytics data.
