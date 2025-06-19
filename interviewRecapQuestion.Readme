@@ -838,3 +838,111 @@ These resources will help build a solid foundation for iOS development and provi
 
     - Introduce tools and methodologies for data-driven decisions, such as A/B testing and user behavior analysis.
     - Explain the process of improving user experience and planning new features using app analytics data.
+
+
+
+## Absolutely! Here’s a structured outline of topics and sub-pointers for building an iOS budgeting app like 하루비, starting from the basics and moving to more advanced features. This will serve as your learning roadmap and checklist.
+
+---
+
+# iOS Budgeting App Learning Roadmap
+
+## 1. **Getting Started**
+   - Setting up Xcode and your first SwiftUI project
+   - Understanding the Xcode interface
+   - Running your app in the simulator
+
+---
+
+## 2. **Swift & SwiftUI Basics**
+   - Swift language fundamentals (variables, functions, structs, classes)
+   - SwiftUI basics (Views, Modifiers, Stacks)
+   - State management with @State and @Binding
+   - Navigation and NavigationView
+
+---
+
+## 3. **App Structure & Design**
+   - Planning app features and user flow
+   - Sketching wireframes for main screens
+   - Understanding MVVM (Model-View-ViewModel) pattern
+
+---
+
+## 4. **Core Screens (Views)**
+   ### a. Home / Dashboard Screen
+      - Displaying summary information (daily budget, spent amount)
+      - Using VStack, Text, and formatting numbers
+
+   ### b. Expense List Screen
+      - Creating a list of expenses with List and ForEach
+      - Custom row views
+      - Navigation to detail or add screens
+
+   ### c. Add/Edit Expense Screen
+      - Using Forms and TextFields for user input
+      - DatePicker for selecting dates
+      - Passing data between views with @Binding
+
+   ### d. (Optional) Calendar/Schedule Screen
+      - Displaying upcoming or scheduled expenses
+      - Using SwiftUI’s CalendarView or third-party libraries
+
+   ### e. Settings Screen
+      - Adjusting user preferences
+      - Using Toggle, Picker, etc.
+
+---
+
+## 5. **Data Management**
+   - Using @State, @ObservedObject, and @EnvironmentObject
+   - Creating Expense models
+   - Saving and loading data (UserDefaults, SwiftData, or CoreData)
+
+---
+
+## 6. **App Navigation**
+   - Using NavigationStack or NavigationView
+   - Presenting sheets and modals
+   - Passing data between screens
+
+---
+
+## 7. **Advanced Features**
+   - Implementing MVVM or Clean Architecture
+   - Adding widgets with WidgetKit
+   - Integrating Firebase Analytics
+   - Testing with Swift Testing tools
+
+---
+
+## 8. **UI Polish & User Experience**
+   - Customizing colors, fonts, and icons
+   - Adding animations and transitions
+   - Accessibility considerations
+
+---
+
+## 9. **Collaboration & Version Control**
+   - Using Git and GitHub for source control
+   - Collaborating with others (branches, pull requests)
+
+---
+
+## 10. **App Store Preparation**
+   - Creating app icons and launch screens
+   - Writing App Store descriptions
+   - Submitting to the App Store
+
+---
+
+## 11. **Learning Resources**
+   - Apple’s [SwiftUI Tutorials](https://developer.apple.com/tutorials/swiftui)
+   - [Stanford CS193p](https://cs193p.sites.stanford.edu/) (free iOS course)
+   - [Hacking with Swift](https://www.hackingwithswift.com/)
+
+---
+
+### Would you like a deep dive or tutorial for any specific topic or screen?  
+Let me know which one you want to start with, and I’ll guide you step-by-step!
+
